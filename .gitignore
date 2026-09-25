@@ -1,6 +1,3 @@
-__pycache__/
-*.pyc
-build/
-dist/
-*.spec
 音视频/
+书/
+点读贴制作.md

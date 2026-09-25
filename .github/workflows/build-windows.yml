@@ -5,6 +5,9 @@ on:
     tags: ["v*"]          # 推送 v* 标签时打包发布
   workflow_dispatch: {}   # 也允许在 Actions 页面手动触发
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: windows-latest
