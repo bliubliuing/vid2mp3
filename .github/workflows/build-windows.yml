@@ -36,13 +36,13 @@ jobs:
       - name: Build EXE
         shell: pwsh
         run: |
-          pyinstaller --onefile --windowed --name 点读贴音频转换 convert_gui_windows.py
+          pyinstaller --onefile --windowed --name vid2mp3 convert_gui_windows.py
           Copy-Item ffmpeg.exe -Destination dist/
 
       - name: Upload artifact (每次构建都可在 Artifacts 下载)
         uses: actions/upload-artifact@v4
         with:
-          name: 点读贴音频转换-windows
+          name: vid2mp3-windows
           path: dist/
 
       - name: Release (仅 tag 触发时发布到 Releases)
@@ -50,5 +50,5 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: |
-            dist/点读贴音频转换.exe
+            dist/vid2mp3.exe
             dist/ffmpeg.exe
