@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""点读贴音频转换工具 (Windows 版, PySide6)
+"""视频转 MP3 工具 (Windows 版, PySide6)
 
 把视频目录下的 mp4 提取音频转成 MP3，输出到音频目录。
 已存在的 MP3 自动跳过；可限制本次转换数量；后台线程转换，可取消。
@@ -10,7 +10,7 @@ ffmpeg 查找顺序:
 找不到则弹窗提示。
 
 PyInstaller 打包:
-  pyinstaller --onefile --windowed --name 点读贴音频转换 convert_gui_windows.py
+  pyinstaller --onefile --windowed --name vid2mp3 convert_gui_windows.py
 """
 
 import os
@@ -95,7 +95,7 @@ class ConvertWorker(QThread):
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("点读贴音频转换")
+        self.setWindowTitle("视频转 MP3")
         self.resize(760, 560)
         self.worker: ConvertWorker | None = None
 

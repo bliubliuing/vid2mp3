@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""点读贴音频转换 GUI (GTK4 + libadwaita)
+"""视频转 MP3 工具 (Linux 版, GTK4 + libadwaita)
 
 把视频目录下的 mp4 提取音频转成 MP3，输出到音频目录。
 已存在的 MP3 自动跳过。可限制本次转换数量。
 
-运行: python3 convert_gui.py
+运行: python3 convert_gui_linux.py
 """
 
 import subprocess
@@ -17,9 +17,8 @@ gi.require_version("Gtk", "4.0")
 gi.require_version("Adw", "1")
 from gi.repository import Adw, GLib, Gtk  # noqa: E402
 
-BASE = Path("/home/my/work/0proj/AudioStickerMaker/音视频")
-DEFAULT_SRC = str(BASE / "02.巴巴爸爸第一季视频")
-DEFAULT_DST = str(BASE / "02.巴巴爸爸第一季音频")
+DEFAULT_SRC = ""
+DEFAULT_DST = ""
 
 
 class ConvertWorker(threading.Thread):
@@ -76,7 +75,7 @@ class ConvertWorker(threading.Thread):
 
 class MainWindow(Adw.ApplicationWindow):
     def __init__(self, app):
-        super().__init__(application=app, title="点读贴音频转换")
+        super().__init__(application=app, title="视频转 MP3")
         self.set_default_size(720, 560)
         self.worker = None
 

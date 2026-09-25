@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
-# 把巴巴爸爸第一季视频 (mp4) 提取转换为 MP3
-# 用法: ./convert_babapapa.sh [数量] [视频目录] [音频输出目录]
+# 把视频目录下的 mp4 批量提取转换为 MP3
+# 用法: ./convert.sh [数量] [视频目录] [音频输出目录]
 #   数量(可选): 本次最多转换几个新文件，缺省=全部
 #   视频目录 / 音频输出目录(可选): 缺省使用下面的默认路径，可按需传入覆盖
 # 已存在的 MP3 会自动跳过，不重复转换。
 
 set -u
 
-BASE="/home/my/work/0proj/AudioStickerMaker/音视频"
-DEFAULT_SRC="$BASE/02.巴巴爸爸第一季视频"
-DEFAULT_DST="$BASE/02.巴巴爸爸第一季音频"
+BASE="${VID2MP3_BASE:-$PWD}"
+DEFAULT_SRC="$BASE/videos"
+DEFAULT_DST="$BASE/mp3"
 
 LIMIT="${1:-0}"
 SRC="${2:-$DEFAULT_SRC}"
